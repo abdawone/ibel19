@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+    <template id="pos_title_debrand" inherit_id="point_of_sale.index">
+        <xpath expr="//title" position="replace">
+            <title>Ibel POS</title>
+        </xpath>
+    </template>
+</odoo>

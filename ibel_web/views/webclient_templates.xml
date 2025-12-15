@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+    <template id="title_debrand" inherit_id="web.layout">
+        <xpath expr="//title" position="replace">
+            <title t-esc="title or 'Ibel'"/>
+        </xpath>
+        <xpath expr="//link" position="replace">
+            <link type="image/x-icon" rel="shortcut icon" t-att-href="x_icon or '/ibel_web/static/src/img/favicon.ico'"/>
+        </xpath>
+    </template>
+    <template id="replace_login" name="Login Layout" inherit_id="web.login_layout">
+        <xpath expr="//a[@target='_blank']" position="replace">
+            <a href="https://ibel.app?utm_source=db&amp;utm_medium=auth" target="_blank">Powered by <span>Ibel</span></a>
+        </xpath>
+    </template>
+    <template id="replace_promo" name="Promo" inherit_id="web.brand_promotion_message">
+        <xpath expr="//a[@target='_blank']" position="replace">
+            <a target="_blank"
+                t-attf-href="https://ibel.app?utm_source=db&amp;utm_medium=#{_utm_medium}"
+                class="badge badge-light">
+                <img alt="Ibel"
+                    src="/web/static/src/img/odoo_logo_tiny.png"
+                    style="height: 1em; vertical-align: baseline;"/>
+            </a>
+        </xpath>
+    </template>
+</odoo>
